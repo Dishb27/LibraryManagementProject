@@ -102,7 +102,7 @@ public class UserPage {
     private TableView<?> returnbookTable;
 
     @FXML
-    private TableView<?> tablebookavailabitiy;
+    private TableView<Book> tablebookavailabitiy;
 
     @FXML
     private JFXTextField txtBookIdborrowBook;
@@ -136,9 +136,14 @@ public class UserPage {
     private HBox viewbooksUservbox;
 
     private BorrowDAO borrowDAO;
+    private BookDAO bookDAO;
+    private ObservableList<Book> bookList;
+
 
     public UserPage() {
         borrowDAO = new BorrowDAO();
+        bookDAO = new BookDAO();
+
     }
 
     @FXML
@@ -148,6 +153,37 @@ public class UserPage {
         colbookTitleUser.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
         colBorrowedDateUser.setCellValueFactory(new PropertyValueFactory<>("borrowedDate"));
         colDueDateUser.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+
+        colBookID.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colBookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+        colAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
+        colGenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+        loadAvailableBooks();
+        setupSearchFilter();
+    }
+
+    private void loadAvailableBooks() {
+        // Fetch available books from the database
+        List<Book> books = bookDAO.getAllBooks();
+        bookList = FXCollections.observableArrayList(books);
+        tablebookavailabitiy.setItems(bookList);
+    }
+
+    private void setupSearchFilter() {
+        fieldsearchbyBooktitle.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null || newValue.trim().isEmpty()) {
+                // Reset table to original book list when search bar is empty
+                tablebookavailabitiy.setItems(bookList);
+            } else {
+                // Filter book list based on title
+                ObservableList<Book> filteredList = bookList.filtered(
+                        book -> book.getTitle().toLowerCase().contains(newValue.toLowerCase())
+                );
+                tablebookavailabitiy.setItems(filteredList);
+            }
+        });
     }
 
     @FXML

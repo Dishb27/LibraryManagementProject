@@ -102,8 +102,10 @@
             <Label layoutX="135.0" layoutY="178.0" text="Genre" />
             <Label layoutX="133.0" layoutY="237.0" text="ISBN" />
             <Label layoutX="136.0" layoutY="296.0" text="Quantity" />
-            <Button layoutX="233.0" layoutY="374.0" mnemonicParsing="false" onAction="#addBookOnAction" text="Add" />
-            <Button layoutX="331.0" layoutY="374.0" mnemonicParsing="false" onAction="#resetAddBookFormOnAction" text="Reset" />
+            <Button layoutX="239.0" layoutY="413.0" mnemonicParsing="false" onAction="#addBookOnAction" text="Add" />
+            <Button layoutX="337.0" layoutY="413.0" mnemonicParsing="false" onAction="#resetAddBookFormOnAction" text="Reset" />
+         <Label layoutX="137.0" layoutY="357.0" text="Availability" />
+         <TextField fx:id="txtAvailability" layoutX="137.0" layoutY="375.0" prefHeight="26.0" prefWidth="334.0" />
         </AnchorPane>
 
         <AnchorPane fx:id="viewBooksPane" layoutX="301.0" layoutY="190.0" prefHeight="474.0" prefWidth="602.0" style="-fx-background-color: #f4f4f4;" visible="false">

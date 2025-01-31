@@ -28,7 +28,8 @@ public class BookDAO {
                         resultSet.getString("author"),
                         resultSet.getString("genre"),
                         resultSet.getString("isbn"),
-                        resultSet.getInt("quantity")
+                        resultSet.getInt("quantity"),
+                        resultSet.getString("availability")
                 );
                 books.add(book);
             }

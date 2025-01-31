@@ -12,15 +12,19 @@ public class Book {
     private StringProperty genre;
     private StringProperty isbn;
     private IntegerProperty quantity;
+    private StringProperty availability;
+
 
     // Constructor
-    public Book(int bookId, String title, String author, String genre, String isbn, int quantity) {
+    public Book(int bookId, String title, String author, String genre, String isbn, int quantity,String availability) {
         this.bookId = new SimpleIntegerProperty(bookId);
         this.title = new SimpleStringProperty(title);
         this.author = new SimpleStringProperty(author);
         this.genre = new SimpleStringProperty(genre);
         this.isbn = new SimpleStringProperty(isbn);
         this.quantity = new SimpleIntegerProperty(quantity);
+        this.availability = new SimpleStringProperty(availability);
+
     }
 
     // Getters and setters for properties (JavaFX bindings)
@@ -46,6 +50,10 @@ public class Book {
 
     public IntegerProperty quantityProperty() {
         return quantity;
+    }
+
+    public StringProperty availabilityProperty() {
+        return availability;
     }
 
     // Getters and setters for actual values
@@ -97,6 +105,14 @@ public class Book {
         this.quantity.set(quantity);
     }
 
+    public String getAvailability() {
+        return availability.get();
+    }
+
+    public void setAvailability(String availability) {
+        this.availability.set(availability);
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -106,6 +122,7 @@ public class Book {
                 ", genre='" + genre.get() + '\'' +
                 ", isbn='" + isbn.get() + '\'' +
                 ", quantity=" + quantity.get() +
+                ", availability=" + availability.get() +
                 '}';
     }
 }

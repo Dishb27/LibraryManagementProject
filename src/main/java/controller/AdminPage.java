@@ -118,6 +118,9 @@ public class AdminPage {
     private TextField txtContactAddUserAdmin;
 
     @FXML
+    private TextField txtAvailability;
+
+    @FXML
     private TextField txtGenre;
 
     @FXML
@@ -368,6 +371,7 @@ public class AdminPage {
         String genre = txtGenre.getText();
         String isbn = txtISBN.getText();
         String quantityStr = txtQuantity.getText();
+        String availability = txtAvailability.getText();
 
         if (title.isEmpty() || author.isEmpty() || genre.isEmpty() || isbn.isEmpty() || quantityStr.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Input Error", "Please fill all the fields!");
@@ -375,7 +379,7 @@ public class AdminPage {
             try {
                 int quantity = Integer.parseInt(quantityStr);
                 // Create a new Book object
-                Book book = new Book(0, title, author, genre, isbn, quantity); // 0 for auto-generated bookId
+                Book book = new Book(0, title, author, genre, isbn, quantity,availability); // 0 for auto-generated bookId
 
                 // Call the DAO method to add the book to the database
                 BookDAO bookDAO = new BookDAO();
@@ -694,6 +698,7 @@ public class AdminPage {
         txtGenre.clear();
         txtISBN.clear();
         txtQuantity.clear();
+        txtAvailability.clear();
     }
 
     private void resetAddUserForm() {
