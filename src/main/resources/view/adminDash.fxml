@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="644.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPage">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="524.0" layoutY="141.0" stroke="TRANSPARENT" strokeType="INSIDE" width="302.0" />
+
+        <!-- Sidebar for Management Options -->
+        <VBox fx:id="bookOptionBoxAdmin" layoutX="85.0" layoutY="210.0" prefHeight="367.0" prefWidth="192.0" spacing="15.0">
+            <children>
+                <Button onAction="#showBookManagementButtons" prefHeight="75.0" prefWidth="192.0" style="-fx-background-color: #062861; -fx-text-fill: white;" text="Book Management">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button onAction="#showUserManagementButtons" prefHeight="75.0" prefWidth="192.0" style="-fx-background-color: #062861; -fx-text-fill: white;" text="User Management">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button onAction="#showFineManagementButtons" prefHeight="75.0" prefWidth="192.0" style="-fx-background-color: #062861; -fx-text-fill: white;" text="Fine Management">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button onAction="#showReportsButtons" prefHeight="75.0" prefWidth="192.0" style="-fx-background-color: #062861; -fx-text-fill: white;" text="Reports">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+        <HBox fx:id="bookManagebox" layoutX="300.0" layoutY="142.0" prefHeight="46.0" prefWidth="602.0">
+            <children>
+                <Button onAction="#showAddBooksPanel" prefHeight="38.0" prefWidth="318.0" style="-fx-background-color: #062861; -fx-text-fill: white; -fx-border-width: 5; -fx-border-color: black;" text="Add Books">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button onAction="#showViewBooksPanel" prefHeight="38.0" prefWidth="294.0" style="-fx-background-color: #062861; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 5;" text="View Books">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d2ecff" height="144.0" layoutY="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="905.0" />
+        <ImageView fitHeight="82.0" fitWidth="74.0" layoutX="11.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/book.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="74.0" fitWidth="68.0" layoutX="14.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/management%20(1).png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="82.0" fitWidth="74.0" layoutX="11.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/fine.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="82.0" fitWidth="74.0" layoutX="11.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/statistics.png" />
+            </image>
+        </ImageView>
+        <!-- Title Label -->
+        <Label layoutX="302.0" layoutY="14.0" text="Admin Dashboard" textFill="#062861">
+            <font>
+                <Font name="Cambria Bold" size="37.0" />
+            </font>
+        </Label>
+        <Button layoutX="105.0" layoutY="596.0" mnemonicParsing="false" onAction="#logoutOnActionAdmin" prefHeight="34.0" prefWidth="91.0" text="Log out" />
+
+        <!-- Content Panels -->
+        <AnchorPane fx:id="addBooksPane" layoutX="302.0" layoutY="187.0" prefHeight="474.0" prefWidth="602.0" style="-fx-background-color: #f4f4f4;">
+            <Label layoutX="20.0" layoutY="20.0" text="Add Books Content Here" textFill="#062861" />
+            <TextField fx:id="txtbookTitle" layoutX="134.0" layoutY="92.0" prefHeight="26.0" prefWidth="334.0" />
+            <TextField fx:id="txtAuthor" layoutX="134.0" layoutY="144.0" prefHeight="26.0" prefWidth="334.0" />
+            <TextField fx:id="txtGenre" layoutX="134.0" layoutY="196.0" prefHeight="26.0" prefWidth="334.0" />
+            <TextField fx:id="txtISBN" layoutX="134.0" layoutY="255.0" prefHeight="26.0" prefWidth="334.0" />
+            <TextField fx:id="txtQuantity" layoutX="134.0" layoutY="314.0" prefHeight="26.0" prefWidth="334.0" />
+            <Label layoutX="134.0" layoutY="66.0" text="Book Title" />
+            <Label layoutX="133.0" layoutY="126.0" text="Author" />
+            <Label layoutX="135.0" layoutY="178.0" text="Genre" />
+            <Label layoutX="133.0" layoutY="237.0" text="ISBN" />
+            <Label layoutX="136.0" layoutY="296.0" text="Quantity" />
+            <Button layoutX="233.0" layoutY="374.0" mnemonicParsing="false" onAction="#addBookOnAction" text="Add" />
+            <Button layoutX="331.0" layoutY="374.0" mnemonicParsing="false" onAction="#resetAddBookFormOnAction" text="Reset" />
+        </AnchorPane>
+
+        <AnchorPane fx:id="viewBooksPane" layoutX="301.0" layoutY="190.0" prefHeight="474.0" prefWidth="602.0" style="-fx-background-color: #f4f4f4;" visible="false">
+            <TableView fx:id="bookManViewTable" editable="true" layoutX="19.0" layoutY="137.0" prefHeight="200.0" prefWidth="569.0">
+                <columns>
+                    <TableColumn fx:id="colBookIDAdmin" onEditCommit="#handleBookIdEdit" prefWidth="75.0" text="Book ID" />
+                    <TableColumn fx:id="colBookTitleAdmin" onEditCommit="#handleBookTitleEdit" prefWidth="140.79998779296875" text="Book Title" />
+                    <TableColumn fx:id="colAuthorAdmin" minWidth="7.199951171875" onEditCommit="#handleAuthorEdit" prefWidth="120.79998779296875" text="Author" />
+                    <TableColumn fx:id="colGenreAdmin" onEditCommit="#handleGenreEdit" prefWidth="79.20001220703125" text="Genre" />
+                    <TableColumn fx:id="colIsbnAdmin" onEditCommit="#handleIsbnEdit" prefWidth="91.99993896484375" text="ISBN" />
+                    <TableColumn fx:id="colQuantityAdmin" onEditCommit="#handleQuantityEdit" prefWidth="60.0" text="Quantity" />
+                </columns>
+            </TableView>
+            <Label layoutX="20.0" layoutY="20.0" text="View Books Content Here" textFill="#062861" />
+            <Button layoutX="464.0" layoutY="97.0" mnemonicParsing="false" onAction="#adminViewBooksEdit" text="Edit" />
+            <Button layoutX="524.0" layoutY="97.0" mnemonicParsing="false" onAction="#adminViewBooksDelete" text="Delete" />
+            <TextField fx:id="txtsearchBarAdminViewBooks" layoutX="30.0" layoutY="59.0" />
+        </AnchorPane>
+        <HBox fx:id="userManagebox" layoutX="301.0" layoutY="142.0" prefHeight="46.0" prefWidth="602.0" visible="false">
+            <children>
+                <Button mnemonicParsing="false" onAction="#addUsersAdmin" prefHeight="46.0" prefWidth="309.0" style="-fx-background-color: #062861; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 5;" text="Add Users">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#viewUsersAdmin" prefHeight="46.0" prefWidth="302.0" style="-fx-background-color: #062861; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 5;" text="View Users">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <AnchorPane fx:id="addUsersPane" layoutX="302.0" layoutY="190.0" prefHeight="474.0" prefWidth="602.0" visible="false">
+            <children>
+                <TextField fx:id="txtNameAddUserAdmin" layoutX="131.0" layoutY="97.0" prefHeight="34.0" prefWidth="347.0" />
+                <TextField fx:id="txtContactAddUserAdmin" layoutX="129.0" layoutY="168.0" prefHeight="26.0" prefWidth="347.0" />
+                <DatePicker fx:id="membershipDateAddUserAdmin" layoutX="131.0" layoutY="237.0" prefHeight="18.0" prefWidth="119.0" />
+                <ChoiceBox fx:id="roleAddUserAdmin" layoutX="264.0" layoutY="237.0" prefHeight="26.0" prefWidth="91.0" />
+                <ChoiceBox fx:id="statusAddUserAdmin" layoutX="386.0" layoutY="237.0" prefHeight="18.0" prefWidth="91.0" />
+                <Label layoutX="131.0" layoutY="80.0" text="Name" />
+                <Label layoutX="129.0" layoutY="151.0" text="Contact Number" />
+                <Label layoutX="131.0" layoutY="220.0" text="Membership Date" />
+                <Label layoutX="264.0" layoutY="220.0" text="Role" />
+                <Label layoutX="386.0" layoutY="220.0" text="Status" />
+                <Button layoutX="238.0" layoutY="333.0" mnemonicParsing="false" onAction="#adduserAdminOnAction" text="Add" />
+                <Button layoutX="334.0" layoutY="333.0" mnemonicParsing="false" onAction="#resetadduserAdmin" text="Reset" />
+            </children></AnchorPane>
+        <AnchorPane fx:id="viewUsersPane" layoutX="302.0" layoutY="190.0" prefHeight="474.0" prefWidth="602.0" visible="false">
+            <children>
+                <Button layoutX="490.0" layoutY="43.0" mnemonicParsing="false" onAction="#deleteViewUsersAdmin" text="Delete" />
+                <TableView fx:id="userManViewTable" editable="true" layoutX="10.0" layoutY="69.0" prefHeight="200.0" prefWidth="581.0">
+                    <columns>
+                        <TableColumn fx:id="userIdViewUsersAdmin" onEditCommit="#handleUserIdEdit" prefWidth="75.0" text="User ID" />
+                        <TableColumn fx:id="nameViewUsersAdmin" onEditCommit="#handleNameEdit" prefWidth="144.800048828125" text="Name" />
+                        <TableColumn fx:id="ContactViewUsersAdmin" onEditCommit="#handleContactEdit" prefWidth="98.39996337890625" text="Contact Number" />
+                        <TableColumn fx:id="memDateViewUsersAdmin" onEditCommit="#handleMembershipDateEdit" prefWidth="104.800048828125" text="Membership Date" />
+                        <TableColumn fx:id="roleViewUsersAdmin" onEditCommit="#handleRoleEdit" prefWidth="73.60003662109375" text="Role" />
+                        <TableColumn fx:id="statusViewUsersAdmin" onEditCommit="#handleStatusEdit" prefWidth="86.400146484375" text="Staus" />
+                    </columns>
+                </TableView>
+                <Button layoutX="400.0" layoutY="43.0" mnemonicParsing="false" onAction="#editViewUsersAdmin" text="Edit" />
+            </children></AnchorPane>
+        <AnchorPane fx:id="penaltyPane" layoutX="302.0" layoutY="190.0" prefHeight="474.0" prefWidth="602.0" visible="false">
+            <children>
+                <TableView fx:id="tablepenalty" layoutX="72.0" layoutY="103.0" prefHeight="200.0" prefWidth="458.0">
+                    <columns>
+                        <TableColumn fx:id="colfineIdFineManaAdmin" prefWidth="90.4000244140625" text="Penalty ID" />
+                        <TableColumn fx:id="colborrowIdFineAdmin" prefWidth="111.199951171875" text="Borrow ID" />
+                        <TableColumn fx:id="coldaysOverdieFineAdmin" prefWidth="133.60003662109375" text="Days Overdue" />
+                        <TableColumn fx:id="colfinemanagementAdmin" prefWidth="123.20001220703125" text="Fine" />
+                    </columns>
+                </TableView>
+            </children></AnchorPane>
+        <AnchorPane fx:id="reportsPane" layoutX="302.0" layoutY="141.0" prefHeight="524.0" prefWidth="602.0" visible="false">
+            <children>
+                <Button layoutX="276.0" layoutY="249.0" mnemonicParsing="false" onAction="#dowloadReports" text="Download" />
+                <MenuButton layoutX="101.0" layoutY="127.0" mnemonicParsing="false" onAction="#showReportTypes" prefHeight="101.0" prefWidth="421.0" text="Select Report Type">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                </MenuButton>
+            </children>
+        </AnchorPane>
+      <HBox fx:id="fineManageHbox" layoutX="302.0" layoutY="140.0" prefHeight="46.0" prefWidth="602.0" visible="false">
+         <children>
+              <Button fx:id="manageBorrowFine" mnemonicParsing="false" onAction="#manageBorrowFineaction" prefHeight="46.0" prefWidth="609.0" style="-fx-background-color: #062861; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 5;" text="Manage Borrowing penalties">
+                  <font>
+                      <Font name="System Bold" size="16.0" />
+                  </font>
+              </Button>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>
